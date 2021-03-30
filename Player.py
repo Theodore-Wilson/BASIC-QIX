@@ -48,7 +48,6 @@ class Player(Character):
                     if g.getGrid(self.coordXGrid, self.coordYGrid) == 1:
                         g.updateGridBox()
                         self.Draw = []
-            #g.updateGridLine(self.coordXGrid, self.coordYGrid)
         else:
             if UP == True and self.coordXP > 5: 
                 if g.getGrid(self.coordXGrid-1, self.coordYGrid) == 1:
@@ -66,9 +65,6 @@ class Player(Character):
                 if g.getGrid(self.coordXGrid, self.coordYGrid+1) == 1:
                     self.coordYP += self.moveD
                     Character.moveRight(self)
-        #print (self.coordXGrid)
-        #print (self.coordYGrid)
-        #print ()
     
     def checkLoseLife(self, x, y):
         if x == self.coordXGrid and y == self.coordYGrid:
@@ -80,3 +76,15 @@ class Player(Character):
     
     def getDraw(self):
         return self.Draw
+
+    def qixHit(self,g):
+        self.coordXGrid = 0
+        self.coordYGrid = 0
+        self.coordXP = 5
+        self.coordYP = 5
+        for i in range(101):
+            for j in range(101):
+                if [i,j] in self.Draw:
+                    g.setGrid(i,j, 0)
+                    g.setDirectionGrid(i,j,None)
+        self.Draw = []

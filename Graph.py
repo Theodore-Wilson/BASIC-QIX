@@ -64,3 +64,6 @@ class Graph:
 
     def setGrid(self, x, y, v):
         self.grid[x][y] = v
+
+    def setDirectionGrid(self, x, y, v):
+        self.directionGrid[x][y] = v

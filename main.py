@@ -1,3 +1,4 @@
+from Qix import Qix
 import pygame
 from Player import Player
 from Graph import Graph
@@ -20,11 +21,12 @@ def pygameDrawLine():
                 #pygame.draw.rect(gameDisplay, (0,0,0,), [j*10-5, i*10+5, 10, 3])
 
 def pygameDraw():
-    pygame.draw.rect(gameDisplay, (0,0,0), [0, 0, 1010, 1010])
-    pygame.draw.rect(gameDisplay, (0,128,0), [5, 5, 1000, 1000])
-    pygameDrawLine()
-    pygame.draw.circle(gameDisplay, (128,0,0), [player.getCoordYP(), player.getCoordXP()],  5)
-    pygame.draw.circle(gameDisplay, (0,0,128), [spark1.getCoordYP(), spark1.getCoordXP()],  5)
+    pygame.draw.rect(gameDisplay, (0,0,0), [0, 0, 1010, 1010]) #black background
+    pygame.draw.rect(gameDisplay, (0,128,0), [5, 5, 1000, 1000]) #play area
+    pygameDrawLine() #lines
+    pygame.draw.circle(gameDisplay, (0,0,0), [qix.getCoordYP(), qix.getCoordXP()],  5) #qix
+    pygame.draw.circle(gameDisplay, (128,0,0), [player.getCoordYP(), player.getCoordXP()],  5) #player
+    pygame.draw.circle(gameDisplay, (0,0,128), [spark1.getCoordYP(), spark1.getCoordXP()],  5) #spark
     if numSparks == 2:
         None
     pygame.display.update()
@@ -35,6 +37,7 @@ backgroundGraph.setupGrid()
 backgroundGraph.setupDirectionGrid()
 player = Player(0,0)
 spark1 = Spark(0,50)
+qix = Qix(50,50)
 
 pygame.init()    
 
@@ -81,11 +84,18 @@ while not isDone:
             player.move(False, False, False, True, False, backgroundGraph)
     pygameDraw()
     
+
     #moves the spark
     spark1.move(backgroundGraph)
+    pygameDraw()
     if numSparks == 2:
         None #when i add the ability to create a second spark
-    player.checkLoseLife(spark1.getCoordXGrid(), spark1.getCoordYGrid)
+    player.checkLoseLife(spark1.getCoordXGrid(), spark1.getCoordYGrid())
+    pygameDraw()
+
+
+    #moves the qix
+    qix.move(backgroundGraph, player)
     pygameDraw()
 
 
