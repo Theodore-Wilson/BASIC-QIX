@@ -192,6 +192,7 @@ class Player(Character):
         return self.Draw
 
     def qixHit(self,g):
+        self.lifeForce -=1
         self.coordXGrid = 0
         self.coordYGrid = 0
         self.coordXP = self.coordXGrid*4 + 92
