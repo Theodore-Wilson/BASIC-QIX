@@ -1,4 +1,5 @@
 from Character import Character
+from random import randint
 
 class Player(Character):
 
@@ -207,8 +208,11 @@ class Player(Character):
     #create new one hit self for player class so it works in sequence diagram
     def qixHit(self,g):
         self.lifeForce -=1
-        self.coordXGrid = 0
-        self.coordYGrid = 0
+        options = g.getWalls()
+        rand = randint(0, len(options)-1)
+        pos = options[rand]
+        self.coordXGrid = pos[0]
+        self.coordYGrid = pos[1]
         self.coordXP = self.coordXGrid*4 + 92
         if self.coordYGrid == 0:
             self.coordYP = self.coordYGrid*4 +12
@@ -223,8 +227,11 @@ class Player(Character):
 
     def hitSelf(self,g):
         self.lifeForce -=1
-        self.coordXGrid = 0
-        self.coordYGrid = 0
+        options = g.getWalls()
+        rand = randint(0, len(options)-1)
+        pos = options[rand]
+        self.coordXGrid = pos[0]
+        self.coordYGrid = pos[1]
         self.coordXP = self.coordXGrid*4 + 92
         if self.coordYGrid == 0:
             self.coordYP = self.coordYGrid*4 +12
