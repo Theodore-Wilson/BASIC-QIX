@@ -98,7 +98,7 @@ while not isDone:
             player.move(False, True, False, False, False, False, backgroundGraph, [qix.getCoordXGrid(), qix.getCoordYGrid()])
         elif dDown:
             player.move(False, False, False, True, False, False, backgroundGraph, [qix.getCoordXGrid(), qix.getCoordYGrid()])
-    if player.getLife() == 0:
+    if player.getLife() == 0:    
         isDone = True
     
     #moves the spark

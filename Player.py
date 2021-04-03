@@ -214,10 +214,7 @@ class Player(Character):
         self.coordXGrid = pos[0]
         self.coordYGrid = pos[1]
         self.coordXP = self.coordXGrid*4 + 92
-        if self.coordYGrid == 0:
-            self.coordYP = self.coordYGrid*4 +12
-        else:
-            self.coordYP = self.coordYGrid*4 +10
+        self.coordYP = self.coordYGrid*4 +12
         for i in range(100):
             for j in range(100):
                 if [i,j] in self.Draw:
@@ -233,10 +230,7 @@ class Player(Character):
         self.coordXGrid = pos[0]
         self.coordYGrid = pos[1]
         self.coordXP = self.coordXGrid*4 + 92
-        if self.coordYGrid == 0:
-            self.coordYP = self.coordYGrid*4 +12
-        else:
-            self.coordYP = self.coordYGrid*4 +10
+        self.coordYP = self.coordYGrid*4 +12
         for i in range(100):
             for j in range(100):
                 if [i,j] in self.Draw:
