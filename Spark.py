@@ -1,6 +1,5 @@
 from Character import Character
 from random import randint
-from Graph import Graph
 
 class Spark(Character):
 
@@ -12,17 +11,17 @@ class Spark(Character):
 
     def checkIntersection(self, g):
         options = []
-        if self.coordYGrid < 99:
-            if g.getGrid(self.coordXGrid, self.coordYGrid+1) == 1:
+        if self.coordYGrid < 69:
+            if g.getGrid(self.coordXGrid,self.coordYGrid+1) == 1:
                 options.append("RIGHT")
         if self.coordYGrid > 0:
-            if g.getGrid(self.coordXGrid, self.coordYGrid-1) == 1:
+            if g.getGrid(self.coordXGrid,self.coordYGrid-1) == 1:
                 options.append("LEFT")
-        if self.coordXGrid < 99:
-            if g.getGrid(self.coordXGrid+1, self.coordYGrid) == 1:
+        if self.coordXGrid < 69:
+            if g.getGrid(self.coordXGrid+1,self.coordYGrid) == 1:
                 options.append("DOWN")
         if self.coordXGrid > 0:
-            if g.getGrid(self.coordXGrid-1, self.coordYGrid) == 1:
+            if g.getGrid(self.coordXGrid-1,self.coordYGrid) == 1:
                 options.append("UP")
         return options
 
