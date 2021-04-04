@@ -188,13 +188,16 @@ class Player(Character):
                     if (g.getGrid(self.coordXGrid, self.coordYGrid+1) == 0 or g.getGrid(self.coordXGrid, self.coordYGrid+1) == 1) and [self.coordXGrid, self.coordYGrid+1] in self.Draw:
                         self.hitSelf(g)
     
-    def checkLoseLife(self, x, y):
+    def checkLoseLife(self, x, y, g):
         if x == self.coordXGrid and y == self.coordYGrid:
             self.lifeForce -= 1
-            self.coordXGrid = 0
-            self.coordYGrid = 0
-            self.coordXP = 0*4 +92
-            self.coordYP = 0*4 +12
+            options = g.getWalls()
+            rand = randint(0, len(options)-1)
+            pos = options[rand]
+            self.coordXGrid = pos[0]
+            self.coordYGrid = pos[1]
+            self.coordXP = self.coordXGrid*4 + 92
+            self.coordYP = self.coordYGrid*4 +12
             for i in range(100):
                 for j in range(100):
                     if [i,j] in self.Draw:

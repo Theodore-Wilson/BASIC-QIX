@@ -102,10 +102,10 @@ while not isDone:
         isDone = True
     
     #moves the spark
-    spark1.move(backgroundGraph)
-    spark2.move(backgroundGraph)
-    player.checkLoseLife(spark1.getCoordXGrid(), spark1.getCoordYGrid())
-    player.checkLoseLife(spark2.getCoordXGrid(), spark2.getCoordYGrid())
+    spark1.move(backgroundGraph, player)
+    spark2.move(backgroundGraph, player)
+    player.checkLoseLife(spark1.getCoordXGrid(), spark1.getCoordYGrid(), backgroundGraph)
+    player.checkLoseLife(spark2.getCoordXGrid(), spark2.getCoordYGrid(), backgroundGraph)
     if player.getLife() == 0:
         isDone = True
 

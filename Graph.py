@@ -107,7 +107,9 @@ class Graph:
                     if i > 0:
                         if self.grid[i-1][j] != 0:
                             count +=1
-                    if i == 0 or j == 0 or i == 69 or j == 69:
+                    if (i == 0 and j == 0) or (i == 69 and j == 0) or (i == 0 and j == 69) or (i == 69 and j == 69):
+                        count +=5
+                    elif i == 0 or j == 0 or i == 69 or j == 69:
                         count += 3
                     if count == 8:
                         self.grid[i][j] = 4
