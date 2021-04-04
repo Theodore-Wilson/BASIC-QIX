@@ -1,0 +1,41 @@
+@startuml Qix
+Game -> Qix : .getCoordYP()
+Qix -> Game : return coordYP
+Game -> Qix : .getCoordXP()
+Qix -> Game : return coordXP
+Game -> Player : .getCoordYP()
+Player -> Game : return coordYP
+Game -> Player : .getCoordXP()
+Player -> Game : return coordXP
+Game -> Spark : .getCoordYP()
+Spark -> Game : return coordYP
+Game -> Spark : .getCoordXP()
+Spark -> Game : return coordXP
+Game -> Graph : .setupGrid()
+Graph -> Graph : .updateWalls()
+Game -> Player : .move()
+Player -> Graph : .getGrid()
+Graph -> Player : return grid
+Player -> Character : .move()
+Player -> Graph : .getCGrid()
+Graph -> Player : return cGrid
+Player -> Graph : .updateGridLine()
+Player -> Player : .hitSelf()
+Player -> Graph : .updateGridBox()
+Graph -> Graph: .updateWalls()
+Graph -> Graph : .checkWin()
+Game -> Spark : .move()
+Spark -> Character : .move()
+Game -> Spark : .getCoordYP()
+Spark -> Game : return coordYP
+Game -> Spark : .getCoordXP()
+Spark -> Game : return coordXP
+Game -> Player : .checkLostLife()
+Game -> Player : .getLife()
+Player -> Game : return lifeForce()
+Game -> Qix : .move()
+Qix -> Character : .move()
+Qix -> Player : .qixHit()
+Game -> Player : .getLife()
+Player -> Game : return lifeForce()
+@enduml

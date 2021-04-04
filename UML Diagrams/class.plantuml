@@ -1,0 +1,99 @@
+@startuml Qix
+
+class Character {
+    - coordXGrid: Int
+    - coordYGrid: Int
+    - coordXP: Int
+    - coordYP: Int
+
+    +moveRight()
+    +moveLeft()
+    +moveUp()
+    +moveDown()
+    +getCoordXGrid()
+    +getCoordYGrid()
+    +getCoordXP()
+    +getCoordYP()
+}
+
+class Player extends Character{
+    - moveD : Int
+    - moveDS : Int
+    - lifeForce : Int
+    - Draw : Array
+    - currentSlow : Bool
+    - changeGrid : Bool
+    - currentDirection : Bool
+
+    +move()
+    +checkLoseLife()
+    +getDraw()
+    +qixHit()
+    +hitSelf()
+    +switchSpeed()
+    +getLife()
+}
+
+class Spark extends Character{
+    - moveD : Int
+    - changeGrid : Bool
+    - direction : String
+
+    +checkIntersection()
+    +move()
+}
+
+class Qix extends Character{
+    -moveD : Int
+    -changeGrid : Bool
+    -changeD : Int
+    -direction : String
+
+    +randDirection()
+    +checkWall()
+    +checkIntersection()
+    +move()
+    +checkCollision()
+}
+
+class Graph{
+    - grid: 2D Array
+    - cGrind : 2D Array
+    - currentPercent : Float
+    - accessibleWalls : Array
+
+    +setGrid()
+    +getGrid()
+    +getcGrid()
+    +getEntireGrid()
+    +getEntireCGrid()
+    +getCurrentPercent()
+    +getWalls()
+    +setGrid()
+    +setCGrid()
+    +updateGridLine()
+    +updateGridBox()
+    +updateWalls()
+    +checkWin()
+}
+
+class Game{
+    -backgroundGraph : Graph
+    -player : Player
+    -spark1 : Spark
+    -spark2 : Spark
+    -qix : Qix
+    -easyCalcX : Array
+    -easyCalcY : Array
+    gameDisplay : PygameDisplay
+
+    +pygameDrawLine()
+    +pygameDraw()
+    +game()
+}
+
+Game "1" -- "3..*" Character
+
+Game "1" -- "1" Graph
+
+@enduml
