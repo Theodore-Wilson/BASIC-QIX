@@ -6,7 +6,7 @@ class Player(Character):
     def __init__(self, cX, cY):
         self.moveD = 4
         self.moveDS = 2
-        Character.__init__( self, cX, cY, cX*4 + 92, cY*4 +12, self.moveD)
+        Character.__init__( self, cX, cY, cX*4 + 92, cY*4 +12)
         self.lifeForce = 3
         self.Draw = []
         self.currentSlow = None

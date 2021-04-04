@@ -5,7 +5,7 @@ class Qix(Character):
 
     def __init__(self, cX, cY):
         self.moveD = 2
-        Character.__init__( self, cX, cY, cX*4+92, cY*4+10, self.moveD)
+        Character.__init__( self, cX, cY, cX*4+92, cY*4+10)
         self.changeGrid = False
         self.changeD = randint(40,80)
         while (self.changeD % 2 != 0):
