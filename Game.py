@@ -16,6 +16,7 @@ class Game():
         self.qix = Qix(35,35)
         self.easyCalcX = [(i * 4 +10) for i in range(70)]
         self.easyCalcY = [(i * 4 +90) for i in range(70)]
+        self.gameDisplay
 
     def pygameDrawLine(self):
         for i in range(70):
