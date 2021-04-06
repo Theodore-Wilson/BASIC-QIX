@@ -121,7 +121,7 @@ class Graph:
     #if it is greater then they win
     #this will only be checked every time a box is completed
     #wP is win Percent which is specified in the main function
-    def checkWin(self, wP = 0.65):
+    def checkWin(self, wP = 0.75):
         count = 0
         for i in range(1, 69):
             for j in range(1, 69):
@@ -130,7 +130,7 @@ class Graph:
                 elif self.grid[i][j] == 2:
                     count +=1
         self.currentPercent = count/(68*68)
-        if count > (68*68)*wP:
+        if count >= (68*68)*wP:
             return True
         else:
             return False

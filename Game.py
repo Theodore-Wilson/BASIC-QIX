@@ -16,7 +16,27 @@ class Game():
         self.qix = Qix(35,35)
         self.easyCalcX = [(i * 4 +10) for i in range(70)]
         self.easyCalcY = [(i * 4 +90) for i in range(70)]
-        self.gameDisplay
+
+    def writing(self):
+        fontTitle = pygame.font.Font('freesansbold.ttf', 15)
+        numTitle = pygame.font.Font('freesansbold.ttf', 20)
+        lives = fontTitle.render('Lives', True, (225, 225, 225))
+        currentP = fontTitle.render('Current %', True, (225, 225, 225))
+        finalP = fontTitle.render('Final %', True, (225, 225, 225))
+        numLives = numTitle.render(str(self.player.getLife()), True, (225, 225, 225))
+        currentPNum = numTitle.render(str(round(self.backgroundGraph.getCurrentPercent()*100)) + "%", True, (225, 225, 225))
+        finalPNum = numTitle.render("75%", True, (225, 225, 225))
+        self.gameDisplay.blit(lives, (100, 20))
+        self.gameDisplay.blit(currentP, (150, 20))
+        self.gameDisplay.blit(finalP, (235, 20))
+        self.gameDisplay.blit(numLives, (112, 43))
+        self.gameDisplay.blit(currentPNum, (170, 43))
+        self.gameDisplay.blit(finalPNum, (245, 43))
+        return
+
+    def drawImages(self):
+        qixLogo = pygame.image.load('C:/Users/Theodore Wilson/Desktop/PYTHON/Ex_Files_Learning_Python/Exercise Files/School/CPS406/A2_attempt1/qixLogo.JPG')
+        self.gameDisplay.blit(qixLogo, (0, 20))
 
     def pygameDrawLine(self):
         for i in range(70):
@@ -31,6 +51,8 @@ class Game():
 
     def pygameDraw(self):
         self.gameDisplay.fill((0,0,0))
+        self.writing()
+        self.drawImages()#images at top
         self.pygameDrawLine() #lines
         pygame.draw.circle(self.gameDisplay, (0,128,0), [self.qix.getCoordYP(), self.qix.getCoordXP()],  2) #self.qix
         pygame.draw.circle(self.gameDisplay, (128,0,0), [self.player.getCoordYP(), self.player.getCoordXP()],  6) #self.player
@@ -40,8 +62,9 @@ class Game():
 
     
     def game(self):
-        pygame.init()         
-
+        pygame.init()
+        pygame.font.init()         
+        
         self.gameDisplay = pygame.display.set_mode((300, 380))
         self.gameDisplay.fill((0,0,0))
         pygame.display.set_caption("Qix")
