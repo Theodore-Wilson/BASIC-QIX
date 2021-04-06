@@ -1,11 +1,10 @@
 class Character:
 
-    def __init__(self, cX, cY, cXP, cYP, mD):
+    def __init__(self, cX, cY, cXP, cYP):
         self.coordXGrid = cX
         self.coordYGrid = cY
         self.coordXP = cXP
         self.coordYP = cYP
-        self.moveDistance = mD
 
     def moveUp(self):
         self.coordXGrid -= 1
