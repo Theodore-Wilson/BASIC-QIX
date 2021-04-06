@@ -37,7 +37,7 @@ class Spark(Character):
         if self.changeGrid:
             options = self.checkIntersection(g, p)
             if len(options[0]) > 0:
-                if not(len(options[0]) == 2 and (("UP" in options[0] and "DOWN" in options[0]) or ("LEFT" in options[0] and "RIGHT" in options[0]))):
+                if not(len(options[0]) == 2 and (("UP" in options[0] and "DOWN" in options[0]) or ("LEFT" in options[0] and "RIGHT" in options[0]))): #fix this line
                     if len(options[0]) > 0:
                         rand = randint(0,len(options[0])-1)
                         self.direction = options[0][rand]
